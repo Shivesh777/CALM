@@ -1,0 +1,41 @@
+/* Shared style for the TMLR figures. 1 CSS px = 1/96 in; a full-width figure is 624 px (= 6.5 in, the TMLR text
+   width), so 12 px type prints at 9 pt when the figure is included at \linewidth. */
+@font-face { font-family: "SS3"; src: url("node_modules/@fontsource/source-sans-3/files/source-sans-3-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "SS3"; src: url("node_modules/@fontsource/source-sans-3/files/source-sans-3-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "SS3"; src: url("node_modules/@fontsource/source-sans-3/files/source-sans-3-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "SS3"; src: url("node_modules/@fontsource/source-sans-3/files/source-sans-3-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; }
+
+:root {
+  /* surface & ink (reference palette, light mode; print surface white) */
+  --surface: #ffffff;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  /* rules: colour follows the rule in every figure */
+  --calm: #2a78d6;      /* slot 1 */
+  --boa: #eb6834;       /* slot 2 */
+  --adah: #1baf7a;      /* slot 3 */
+  --dorm: #eda100;      /* slot 4 */
+  --kim: #e87ba4;       /* slot 5 */
+  --ew: #008300;        /* slot 6 */
+  --other: #b9b8b1;     /* de-emphasised rules */
+  /* sequential blue ramp (calibration / ordered magnitudes) */
+  --b100: #cde2fb; --b150: #b7d3f6; --b200: #9ec5f4; --b250: #86b6ef; --b300: #6da7ec; --b350: #5598e7;
+  --b400: #3987e5; --b450: #2a78d6; --b500: #256abf; --b550: #1c5cab; --b600: #184f95; --b650: #104281; --b700: #0d366b;
+}
+html, body { margin: 0; padding: 0; background: var(--surface); }
+body { font-family: "SS3", "DejaVu Sans", sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; font-kerning: normal; }
+#fig { display: inline-block; background: var(--surface); }
+svg text { font-family: "SS3", "DejaVu Sans", sans-serif; fill: var(--ink); text-rendering: geometricPrecision; font-kerning: normal; letter-spacing: 0; }
+.t-panel { font-size: 13px; font-weight: 700; }
+.t-title { font-size: 12.5px; font-weight: 600; }
+.t-label { font-size: 11.5px; }
+.t-small { font-size: 10.5px; fill: var(--ink-2); }
+.t-tiny { font-size: 9.5px; fill: var(--muted); }
+.t-num { font-variant-numeric: tabular-nums; }
+.axis path, .axis line { stroke: var(--axis); stroke-width: 1px; shape-rendering: crispEdges; }
+.axis text { font-size: 10.5px; fill: var(--ink-2); font-variant-numeric: tabular-nums; }
+.grid line { stroke: var(--grid); stroke-width: 1px; shape-rendering: crispEdges; }
+.grid path { display: none; }

@@ -1,0 +1,89 @@
+{
+ "iTransformer__electricity__L512__H24__base7__s2022.stats.npz": {
+  "n_test": 19705,
+  "n_val": 1316,
+  "all_same_test": 0,
+  "test": {
+   "rls1": 0,
+   "rls.9999": 0,
+   "rls.999": 0,
+   "lin1": 0,
+   "lin.999": 0,
+   "efc1": 0,
+   "efc.999": 0,
+   "snaive": 0,
+   "ext_gd": 0,
+   "ext_proceed": 0
+  },
+  "val": {
+   "rls1": 0,
+   "rls.9999": 0,
+   "rls.999": 0,
+   "lin1": 0,
+   "lin.999": 0,
+   "efc1": 24,
+   "efc.999": 24,
+   "snaive": 0,
+   "ext_gd": 0,
+   "ext_proceed": 1316
+  }
+ },
+ "iTransformer__electricity__L512__H48__base7__s2022.stats.npz": {
+  "n_test": 19681,
+  "n_val": 1316,
+  "all_same_test": 0,
+  "test": {
+   "rls1": 0,
+   "rls.9999": 0,
+   "rls.999": 0,
+   "lin1": 0,
+   "lin.999": 0,
+   "efc1": 0,
+   "efc.999": 0,
+   "snaive": 0,
+   "ext_gd": 0,
+   "ext_proceed": 0
+  },
+  "val": {
+   "rls1": 0,
+   "rls.9999": 0,
+   "rls.999": 0,
+   "lin1": 0,
+   "lin.999": 0,
+   "efc1": 48,
+   "efc.999": 48,
+   "snaive": 0,
+   "ext_gd": 0,
+   "ext_proceed": 1316
+  }
+ },
+ "iTransformer__electricity__L512__H96__base7__s2022.stats.npz": {
+  "n_test": 19633,
+  "n_val": 1316,
+  "all_same_test": 0,
+  "test": {
+   "rls1": 0,
+   "rls.9999": 0,
+   "rls.999": 0,
+   "lin1": 0,
+   "lin.999": 0,
+   "efc1": 0,
+   "efc.999": 0,
+   "snaive": 0,
+   "ext_gd": 0,
+   "ext_proceed": 0
+  },
+  "val": {
+   "rls1": 0,
+   "rls.9999": 0,
+   "rls.999": 0,
+   "lin1": 0,
+   "lin.999": 0,
+   "efc1": 96,
+   "efc.999": 96,
+   "snaive": 0,
+   "ext_gd": 0,
+   "ext_proceed": 1316
+  }
+ }
+}

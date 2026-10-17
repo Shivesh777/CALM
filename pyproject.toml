@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "calm-forecast"
+version = "1.0.0"
+description = "CALM: calibrated online aggregation of multi-horizon forecasts from any models under delayed, overlapping feedback"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Shivesh Prakash"}]
+dependencies = ["numpy>=1.22"]
+keywords = ["time series", "forecasting", "online learning", "ensembles", "forecast combination"]
+
+[project.urls]
+Homepage = "https://github.com/Shivesh777/CALM"
+
+[project.scripts]
+calm = "calm.cli:main"
+
+[tool.setuptools]
+packages = ["calm"]

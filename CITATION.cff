@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper."
+title: "Stay CALM: Calibrated Online Aggregation for Multi-Horizon Forecasting under Delayed, Overlapping Feedback"
+authors:
+  - family-names: Prakash
+    given-names: Shivesh
+    affiliation: "University of California, Berkeley"
+    orcid: "https://orcid.org/0009-0007-4120-0921"
+repository-code: "https://github.com/Shivesh777/CALM"
+license: MIT
+year: 2026

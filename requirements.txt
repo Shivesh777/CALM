@@ -1,0 +1,11 @@
+# calm/ (the online aggregator) needs only numpy
+numpy>=1.24
+# experiments/: harness, replay, tables, finance
+torch>=2.1
+pandas>=2.0
+scipy>=1.10
+einops>=0.7
+pyarrow>=14          # parquet files in the finance pipeline
+# optional
+# databento          # only to download the CME futures data (licensed, paid)
+# playwright         # only to render the figures (figures/render.py)

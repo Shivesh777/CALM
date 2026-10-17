@@ -1,0 +1,122 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<script src="node_modules/d3/dist/d3.min.js"></script>
+<script src="figlib.js"></script>
+<script src="data/weights.js"></script>
+<script src="data/horizon.js"></script>
+</head><body>
+<div id="fig"></div>
+<script>
+whenFonts(() => {
+const W = 624, Hh = 226;
+const svg = makeSvg(W, Hh, "Overlapping multi-step feedback is autocorrelated, so weights with a horizon-independent learning rate chase noise; dividing the rate by the overlap factor stabilises them and keeps the combination ahead of the best expert at every horizon.");
+
+/* ------------------------------------------------------------------ (a) overlapping targets */
+{
+  const g = svg.append("g").attr("transform", "translate(2,0)");
+  panelTitle(g, 0, 14, "a", "Overlapping targets");
+  const H = 8, nOr = 6, u = 13.2, x0 = 28, y0 = 44, bh = 9, gap = 4, tc = 8;
+  g.append("rect").attr("x", x0 + (tc - 0.5) * u).attr("y", y0 - 4).attr("width", u).attr("height", nOr * (bh + gap) + 3)
+    .attr("fill", css("--b100")).attr("rx", 2);
+  g.append("text").attr("class", "t-small").attr("x", x0 + tc * u).attr("y", y0 - 9).attr("text-anchor", "middle")
+    .text("one target, scored h times");
+  for (let i = 0; i < nOr; i++) {
+    const y = y0 + i * (bh + gap);
+    g.append("text").attr("class", "t-tiny").attr("x", x0 - 5).attr("y", y + bh - 1.2).attr("text-anchor", "end")
+      .text(i === 0 ? "t" : "t+" + i);
+    for (let h = 1; h <= H; h++) {
+      const x = x0 + (i + h - 0.5) * u;
+      g.append("rect").attr("x", x + 0.8).attr("y", y).attr("width", u - 1.6).attr("height", bh).attr("rx", 1.6)
+        .attr("fill", (i + h) === tc ? css("--calm") : "#d9d8d2");
+    }
+  }
+  const yb = y0 + nOr * (bh + gap) + 2;
+  g.append("line").attr("x1", x0 - 2).attr("x2", x0 + (nOr + H) * u - 4).attr("y1", yb).attr("y2", yb)
+    .attr("stroke", css("--axis")).attr("marker-end", "url(#arr)");
+  g.append("text").attr("class", "t-tiny").attr("x", x0 + (nOr + H) * u - 4).attr("y", yb + 11).attr("text-anchor", "end").text("time");
+  g.append("text").attr("class", "t-tiny").attr("x", x0 - 5).attr("y", yb + 11).attr("text-anchor", "end").text("origin");
+
+  // autocorrelation of the loss differences for a persistent (random-walk) target: rho_k = (h-k)/h, so kappa_h = h
+  const ax0 = 28, ay0 = 186, aw = 150, ah = 32, L = 12;
+  const xs = d3.scaleBand().domain(d3.range(L)).range([ax0, ax0 + aw]).padding(0.28);
+  const ys = d3.scaleLinear().domain([0, 1]).range([ay0, ay0 - ah]);
+  for (let k = 0; k < L; k++) {
+    const rho = Math.max(0, (H - k) / H);
+    if (rho > 0) g.append("rect").attr("x", xs(k)).attr("y", ys(rho)).attr("width", xs.bandwidth()).attr("height", ay0 - ys(rho))
+      .attr("fill", css("--ink-2")).attr("rx", 1.2);
+  }
+  g.append("line").attr("x1", ax0).attr("x2", ax0 + aw).attr("y1", ay0).attr("y2", ay0).attr("stroke", css("--axis"));
+  g.append("text").attr("class", "t-tiny").attr("x", ax0 + aw).attr("y", ay0 + 11).attr("text-anchor", "end").text("lag");
+  g.append("text").attr("class", "t-small").attr("x", ax0).attr("y", ay0 - ah - 7).text("feedback correlated over h steps");
+  richText(g, ax0, ay0 + 29, [["noise variance × κ", null, { "font-weight": 600 }], ["h", "sub", { "font-weight": 600 }],
+                              ["  (≈ h)", "back-sub"]]);
+}
+
+/* ------------------------------------------------------------------ (b) weights chase noise */
+{
+  const D = window.FIG_WEIGHTS;
+  const g = svg.append("g").attr("transform", "translate(222,0)");
+  panelTitle(g, 0, 14, "b", "Uncalibrated weights chase noise");
+  const pw = 236, ph = 54, px = 0;
+  const cols = ["#4b4a46", "#9a988f", "#3f6e8c", "#6f97b1", "#a9c4d6", "#b58a3c", "#d1b072", "#e8d4a8"];
+  const rows = [
+    { key: "W_ew", y: 36, lab: [["same learning rate at every horizon", null, { "font-weight": 600 }]], sw: D.changes_ew, rel: D.rel_ew },
+    { key: "W_cal", y: 36 + ph + 36, lab: [["learning rate ÷ κ", null, { "font-weight": 600 }], ["h", "sub", { "font-weight": 600 }]],
+      sw: D.changes_cal, rel: D.rel_cal },
+  ];
+  const x = d3.scaleLinear().domain([0, D.n - 1]).range([px, px + pw]);
+  rows.forEach(rw => {
+    const stack = d3.stack().keys(d3.range(8)).value((d, k) => d[k])(D[rw.key]);
+    const y = d3.scaleLinear().domain([0, 1]).range([rw.y + ph, rw.y]);
+    const area = d3.area().x((d, i) => x(i)).y0(d => y(d[0])).y1(d => y(d[1])).curve(d3.curveStepAfter);
+    g.append("g").selectAll("path").data(stack).join("path").attr("d", area).attr("fill", (d, i) => cols[i]);
+    g.append("rect").attr("x", px).attr("y", rw.y).attr("width", pw).attr("height", ph).attr("fill", "none").attr("stroke", css("--axis"));
+    richText(g, px, rw.y - 5, rw.lab);
+    g.append("text").attr("class", "t-small t-num").attr("x", px + pw).attr("y", rw.y + ph + 12).attr("text-anchor", "end")
+      .text(`${rw.sw} leader switches  ·  MSE ${rw.rel > 0 ? "+" : "−"}${Math.abs(rw.rel).toFixed(1)}% vs. not adapting`);
+  });
+  const lg = [["frozen", 0], ["bias corr.", 1], ["fine-tune ×3", 2], ["refit ×3", 5]];
+  let lx = px;
+  const ly = 36 + 2 * ph + 36 + 30;
+  lg.forEach(([lab, i]) => {
+    g.append("rect").attr("x", lx).attr("y", ly - 7.5).attr("width", 9).attr("height", 9).attr("rx", 2).attr("fill", cols[i]);
+    const tx = g.append("text").attr("class", "t-tiny").attr("x", lx + 12).attr("y", ly).text(lab);
+    lx += 12 + tx.node().getComputedTextLength() + 12;
+  });
+}
+
+/* ------------------------------------------------------------------ (c) gap by horizon */
+{
+  const D = window.FIG_HORIZON.data.all, X = window.FIG_HORIZON.x;
+  const g = svg.append("g").attr("transform", "translate(488,0)");
+  panelTitle(g, 0, 14, "c", "Gap by horizon");
+  const m = { l: 26, r: 4, t: 34, b: 30 }, pw = 136 - m.l - m.r, ph = Hh - m.t - m.b - 14;
+  const x = d3.scaleLinear().domain([0, 1]).range([m.l, m.l + pw]);
+  const series = [["naive_slow", "EW", css("--ew")], ["meta5_eg_boa", "CALM", css("--calm")]];
+  const all = series.flatMap(s => D[s[0]].mean);
+  const y = d3.scaleLinear().domain([Math.min(-2.5, d3.min(all) - 0.5), d3.max(all) + 0.8]).nice().range([m.t + ph, m.t]);
+  g.append("g").attr("class", "grid").attr("transform", `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(4).tickSize(-pw).tickFormat(""));
+  g.append("g").attr("class", "axis").attr("transform", `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(4).tickSize(3));
+  g.append("g").attr("class", "axis").attr("transform", `translate(0,${m.t + ph})`)
+    .call(d3.axisBottom(x).tickValues([0, 0.5, 1]).tickFormat(d => d === 0 ? "0" : d === 1 ? "H" : "H/2").tickSize(3));
+  g.append("line").attr("x1", m.l).attr("x2", m.l + pw).attr("y1", y(0)).attr("y2", y(0)).attr("stroke", css("--ink-2"))
+    .attr("stroke-dasharray", "3,3").attr("stroke-width", 0.8);
+  g.append("text").attr("class", "t-tiny").attr("x", m.l + pw - 1).attr("y", y(0) - 3).attr("text-anchor", "end").text("best single expert");
+  series.forEach(([k, lab, col]) => {
+    const pts = D[k].mean.map((v, i) => [x(X[i]), y(v)]);
+    g.append("path").attr("d", d3.line().curve(d3.curveMonotoneX)(pts)).attr("fill", "none").attr("stroke", col).attr("stroke-width", 2.2)
+      .attr("stroke-linecap", "round");
+    pts.forEach(p => g.append("circle").attr("cx", p[0]).attr("cy", p[1]).attr("r", 3).attr("fill", col).attr("stroke", "#fff").attr("stroke-width", 1.2));
+    const last = pts[pts.length - 1];
+    g.append("text").attr("class", "t-label").attr("x", last[0] - 2).attr("y", last[1] + (k === "naive_slow" ? -7 : 14))
+      .attr("text-anchor", "end").attr("font-weight", 600).text(lab);
+  });
+  g.append("text").attr("class", "t-tiny").attr("x", m.l + pw / 2).attr("y", m.t + ph + 25).attr("text-anchor", "middle").text("forecast horizon");
+  g.append("text").attr("class", "t-tiny").attr("transform", `translate(${m.l - 20},${m.t + ph / 2}) rotate(-90)`).attr("text-anchor", "middle")
+    .text("gap to best expert (pts)");
+  g.append("text").attr("class", "t-tiny").attr("x", m.l + pw).attr("y", m.t - 6).attr("text-anchor", "end").text(`${D.meta5_eg_boa.n} runs`);
+}
+});
+</script>
+</body></html>

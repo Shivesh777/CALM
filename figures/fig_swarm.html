@@ -1,0 +1,74 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<script src="node_modules/d3/dist/d3.min.js"></script>
+<script src="figlib.js"></script>
+<script src="data/confirm.js"></script>
+</head><body>
+<div id="fig"></div>
+<script>
+whenFonts(() => {
+const D = window.FIG_CONFIRM, R = D.runs;
+const rules = [
+  ["CALM", "CALM", css("--calm")], ["BOA-cal", "calibrated BOA", css("--boa")], ["AdaHedgeD", "AdaHedgeD", css("--adah")],
+  ["DORM+", "DORM+", css("--dorm")], ["CALM-sel", "CALM-sel", "#a3a29a"], ["ELF-w", "ELF-w", "#a3a29a"],
+  ["MLpol", "MLpol", "#a3a29a"], ["Kim et al.", "Kim et al. (2026)", css("--kim")], ["EW", "EW (same rate)", css("--ew")],
+];
+const W = 624, rowH = 22, top = 30, Hh = top + rules.length * rowH + 44;
+const svg = makeSvg(W, Hh, "Gap to the best expert in hindsight in each of the 90 pre-registered confirmatory runs, one row per aggregation rule. CALM and calibrated BOA have no long right tail; AdaHedgeD's worst runs are the two ECL runs at H=96 under the Proceed protocol; rules that ignore the overlap sit to the right.");
+const g = svg.append("g");
+const xl = 104, xbreak = 500, xr = 540;
+// piecewise scale: [-8, 8] linear on most of the width, (8, 21] compressed after a break
+const lin = d3.scaleLinear().domain([-8, 8]).range([xl, xbreak]);
+const tail = d3.scaleLinear().domain([8, 21]).range([xbreak + 10, xr]);
+const X = v => v <= 8 ? lin(v) : tail(v);
+// grid + axis
+[-8, -6, -4, -2, 0, 2, 4, 6, 8].forEach(t => g.append("line").attr("x1", lin(t)).attr("x2", lin(t)).attr("y1", top - 4)
+  .attr("y2", top + rules.length * rowH).attr("stroke", t === 0 ? "#52514e" : "#ecebe6").attr("stroke-width", t === 0 ? 1 : 1)
+  .attr("stroke-dasharray", t === 0 ? "3 3" : null));
+[12, 16, 20].forEach(t => g.append("line").attr("x1", tail(t)).attr("x2", tail(t)).attr("y1", top - 4).attr("y2", top + rules.length * rowH)
+  .attr("stroke", "#ecebe6"));
+const ya = top + rules.length * rowH + 2;
+g.append("line").attr("x1", xl).attr("x2", xbreak).attr("y1", ya).attr("y2", ya).attr("stroke", css("--axis"));
+g.append("line").attr("x1", xbreak + 10).attr("x2", xr).attr("y1", ya).attr("y2", ya).attr("stroke", css("--axis"));
+[[xbreak + 2], [xbreak + 6]].forEach(([x]) => g.append("line").attr("x1", x - 2).attr("x2", x + 2).attr("y1", ya + 4).attr("y2", ya - 4).attr("stroke", css("--ink-2")));
+const fmt = d3.format("d");
+[-8, -4, 0, 4, 8].forEach(t => g.append("text").attr("class", "t-small t-num").attr("x", lin(t)).attr("y", ya + 13).attr("text-anchor", "middle").text(fmt(t)));
+[12, 20].forEach(t => g.append("text").attr("class", "t-small t-num").attr("x", tail(t)).attr("y", ya + 13).attr("text-anchor", "middle").text(fmt(t)));
+g.append("text").attr("class", "t-tiny").attr("x", (xl + xr) / 2).attr("y", ya + 27).attr("text-anchor", "middle")
+  .text("gap to the best single expert in hindsight (points of the frozen model's MSE)");
+g.append("text").attr("class", "t-tiny").attr("x", lin(0) - 4).attr("y", top - 8).attr("text-anchor", "end").text("better than every expert");
+g.append("text").attr("class", "t-tiny").attr("x", lin(0) + 4).attr("y", top - 8).text("worse");
+g.append("text").attr("class", "t-tiny").attr("x", W - 38).attr("y", top - 8).attr("text-anchor", "end").text("mean");
+g.append("text").attr("class", "t-tiny").attr("x", W - 2).attr("y", top - 8).attr("text-anchor", "end").text("worst");
+
+rules.forEach(([key, label, col], i) => {
+  const yc = top + i * rowH + rowH / 2;
+  if (i % 2 === 0) g.insert("rect", ":first-child").attr("x", 0).attr("y", top + i * rowH).attr("width", W).attr("height", rowH).attr("fill", "#f8f8f6");
+  g.append("text").attr("class", "t-label").attr("x", xl - 10).attr("y", yc + 4).attr("text-anchor", "end")
+    .attr("font-weight", key === "CALM" ? 700 : 400).text(label);
+  const pts = R.map(r => ({ v: r.gaps[key], r })).filter(p => p.v !== null);
+  const nodes = pts.map(p => ({ x: X(p.v), y: yc, tx: X(p.v), p }));
+  const sim = d3.forceSimulation(nodes).force("x", d3.forceX(d => d.tx).strength(1)).force("y", d3.forceY(yc).strength(0.08))
+    .force("c", d3.forceCollide(2.55)).stop();
+  for (let k = 0; k < 220; k++) sim.tick();
+  nodes.forEach(n => { n.y = Math.max(yc - rowH / 2 + 3, Math.min(yc + rowH / 2 - 3, n.y)); });
+  nodes.forEach(n => {
+    const r = n.p.r, special = (r.ds === "electricity" && r.H === 96 && r.proto === "Proceed") || (r.ds === "ETTh2" && r.H === 96 && r.proto === "DynaME");
+    g.append("circle").attr("cx", n.p.v <= 8 ? n.tx : n.tx).attr("cy", n.y).attr("r", 2.4).attr("fill", col).attr("fill-opacity", 0.9)
+      .attr("stroke", special ? "#0b0b0b" : "#ffffff").attr("stroke-width", special ? 1.1 : 0.7);
+  });
+  const mean = d3.mean(pts, p => p.v), worst = d3.max(pts, p => p.v);
+  g.append("line").attr("x1", X(mean)).attr("x2", X(mean)).attr("y1", yc - 8.5).attr("y2", yc + 8.5).attr("stroke", "#0b0b0b").attr("stroke-width", 2);
+  const sgn = v => (v < 0 ? "−" : "+") + Math.abs(v).toFixed(2);
+  g.append("text").attr("class", "t-small t-num").attr("x", W - 38).attr("y", yc + 4).attr("text-anchor", "end").style("fill", "#0b0b0b").text(sgn(mean));
+  g.append("text").attr("class", "t-small t-num").attr("x", W - 2).attr("y", yc + 4).attr("text-anchor", "end").text(sgn(worst).replace("+", ""));
+});
+// annotate AdaHedgeD's two ECL failures and the common worst case of CALM / calibrated BOA
+const yA = top + 2 * rowH + rowH / 2;
+g.append("text").attr("class", "t-tiny").attr("x", lin(6.25)).attr("y", yA - 7).attr("text-anchor", "middle").style("fill", "#52514e").text("ECL, H=96");
+const yC = top + 0 * rowH + rowH / 2;
+g.append("text").attr("class", "t-tiny").attr("x", lin(4.0) + 7).attr("y", yC + 3.5).style("fill", "#52514e").text("ETTh2, H=96");
+});
+</script>
+</body></html>

@@ -1,0 +1,100 @@
+{"model": "DLinear", "dataset": "ETTh1", "pred_len": 96, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "DLinear|ETTh1|L96|H96|mse_lr0.0001|s2021"}
+{"model": "DLinear", "dataset": "ETTh1", "pred_len": 96, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "DLinear|ETTh1|L96|H96|mse_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTh1", "pred_len": 96, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "DLinear|ETTh1|L96|H96|mse_lr0.005|s2021"}
+{"model": "DLinear", "dataset": "ETTh1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "DLinear|ETTh1|L96|H96|td_geomH4_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTh1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "DLinear|ETTh1|L96|H96|td_geomH4_w03_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTh1", "pred_len": 720, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "DLinear|ETTh1|L96|H720|mse_lr0.0001|s2021"}
+{"model": "DLinear", "dataset": "ETTh1", "pred_len": 720, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "DLinear|ETTh1|L96|H720|mse_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTh1", "pred_len": 720, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "DLinear|ETTh1|L96|H720|mse_lr0.005|s2021"}
+{"model": "DLinear", "dataset": "ETTh1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "DLinear|ETTh1|L96|H720|td_geomH4_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTh1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "DLinear|ETTh1|L96|H720|td_geomH4_w03_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTh2", "pred_len": 96, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "DLinear|ETTh2|L96|H96|mse_lr0.0001|s2021"}
+{"model": "DLinear", "dataset": "ETTh2", "pred_len": 96, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "DLinear|ETTh2|L96|H96|mse_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTh2", "pred_len": 96, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "DLinear|ETTh2|L96|H96|mse_lr0.005|s2021"}
+{"model": "DLinear", "dataset": "ETTh2", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "DLinear|ETTh2|L96|H96|td_geomH4_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTh2", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "DLinear|ETTh2|L96|H96|td_geomH4_w03_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTh2", "pred_len": 720, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "DLinear|ETTh2|L96|H720|mse_lr0.0001|s2021"}
+{"model": "DLinear", "dataset": "ETTh2", "pred_len": 720, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "DLinear|ETTh2|L96|H720|mse_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTh2", "pred_len": 720, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "DLinear|ETTh2|L96|H720|mse_lr0.005|s2021"}
+{"model": "DLinear", "dataset": "ETTh2", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "DLinear|ETTh2|L96|H720|td_geomH4_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTh2", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "DLinear|ETTh2|L96|H720|td_geomH4_w03_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTm1", "pred_len": 96, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "DLinear|ETTm1|L96|H96|mse_lr0.0001|s2021"}
+{"model": "DLinear", "dataset": "ETTm1", "pred_len": 96, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "DLinear|ETTm1|L96|H96|mse_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTm1", "pred_len": 96, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "DLinear|ETTm1|L96|H96|mse_lr0.005|s2021"}
+{"model": "DLinear", "dataset": "ETTm1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "DLinear|ETTm1|L96|H96|td_geomH4_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTm1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "DLinear|ETTm1|L96|H96|td_geomH4_w03_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTm1", "pred_len": 720, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "DLinear|ETTm1|L96|H720|mse_lr0.0001|s2021"}
+{"model": "DLinear", "dataset": "ETTm1", "pred_len": 720, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "DLinear|ETTm1|L96|H720|mse_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTm1", "pred_len": 720, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "DLinear|ETTm1|L96|H720|mse_lr0.005|s2021"}
+{"model": "DLinear", "dataset": "ETTm1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "DLinear|ETTm1|L96|H720|td_geomH4_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTm1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "DLinear|ETTm1|L96|H720|td_geomH4_w03_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTm2", "pred_len": 96, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "DLinear|ETTm2|L96|H96|mse_lr0.0001|s2021"}
+{"model": "DLinear", "dataset": "ETTm2", "pred_len": 96, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "DLinear|ETTm2|L96|H96|mse_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTm2", "pred_len": 96, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "DLinear|ETTm2|L96|H96|mse_lr0.005|s2021"}
+{"model": "DLinear", "dataset": "ETTm2", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "DLinear|ETTm2|L96|H96|td_geomH4_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTm2", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "DLinear|ETTm2|L96|H96|td_geomH4_w03_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTm2", "pred_len": 720, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "DLinear|ETTm2|L96|H720|mse_lr0.0001|s2021"}
+{"model": "DLinear", "dataset": "ETTm2", "pred_len": 720, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "DLinear|ETTm2|L96|H720|mse_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTm2", "pred_len": 720, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "DLinear|ETTm2|L96|H720|mse_lr0.005|s2021"}
+{"model": "DLinear", "dataset": "ETTm2", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "DLinear|ETTm2|L96|H720|td_geomH4_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "ETTm2", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "DLinear|ETTm2|L96|H720|td_geomH4_w03_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "weather", "pred_len": 96, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "DLinear|weather|L96|H96|mse_lr0.0001|s2021"}
+{"model": "DLinear", "dataset": "weather", "pred_len": 96, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "DLinear|weather|L96|H96|mse_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "weather", "pred_len": 96, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "DLinear|weather|L96|H96|mse_lr0.005|s2021"}
+{"model": "DLinear", "dataset": "weather", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "DLinear|weather|L96|H96|td_geomH4_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "weather", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "DLinear|weather|L96|H96|td_geomH4_w03_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "weather", "pred_len": 720, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "DLinear|weather|L96|H720|mse_lr0.0001|s2021"}
+{"model": "DLinear", "dataset": "weather", "pred_len": 720, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "DLinear|weather|L96|H720|mse_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "weather", "pred_len": 720, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "DLinear|weather|L96|H720|mse_lr0.005|s2021"}
+{"model": "DLinear", "dataset": "weather", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "DLinear|weather|L96|H720|td_geomH4_lr0.001|s2021"}
+{"model": "DLinear", "dataset": "weather", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "DLinear|weather|L96|H720|td_geomH4_w03_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTh1", "pred_len": 96, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "RLinear|ETTh1|L96|H96|mse_lr0.0001|s2021"}
+{"model": "RLinear", "dataset": "ETTh1", "pred_len": 96, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "RLinear|ETTh1|L96|H96|mse_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTh1", "pred_len": 96, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "RLinear|ETTh1|L96|H96|mse_lr0.005|s2021"}
+{"model": "RLinear", "dataset": "ETTh1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "RLinear|ETTh1|L96|H96|td_geomH4_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTh1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "RLinear|ETTh1|L96|H96|td_geomH4_w03_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTh1", "pred_len": 720, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "RLinear|ETTh1|L96|H720|mse_lr0.0001|s2021"}
+{"model": "RLinear", "dataset": "ETTh1", "pred_len": 720, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "RLinear|ETTh1|L96|H720|mse_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTh1", "pred_len": 720, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "RLinear|ETTh1|L96|H720|mse_lr0.005|s2021"}
+{"model": "RLinear", "dataset": "ETTh1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "RLinear|ETTh1|L96|H720|td_geomH4_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTh1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "RLinear|ETTh1|L96|H720|td_geomH4_w03_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTh2", "pred_len": 96, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "RLinear|ETTh2|L96|H96|mse_lr0.0001|s2021"}
+{"model": "RLinear", "dataset": "ETTh2", "pred_len": 96, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "RLinear|ETTh2|L96|H96|mse_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTh2", "pred_len": 96, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "RLinear|ETTh2|L96|H96|mse_lr0.005|s2021"}
+{"model": "RLinear", "dataset": "ETTh2", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "RLinear|ETTh2|L96|H96|td_geomH4_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTh2", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "RLinear|ETTh2|L96|H96|td_geomH4_w03_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTh2", "pred_len": 720, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "RLinear|ETTh2|L96|H720|mse_lr0.0001|s2021"}
+{"model": "RLinear", "dataset": "ETTh2", "pred_len": 720, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "RLinear|ETTh2|L96|H720|mse_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTh2", "pred_len": 720, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "RLinear|ETTh2|L96|H720|mse_lr0.005|s2021"}
+{"model": "RLinear", "dataset": "ETTh2", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "RLinear|ETTh2|L96|H720|td_geomH4_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTh2", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "RLinear|ETTh2|L96|H720|td_geomH4_w03_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTm1", "pred_len": 96, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "RLinear|ETTm1|L96|H96|mse_lr0.0001|s2021"}
+{"model": "RLinear", "dataset": "ETTm1", "pred_len": 96, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "RLinear|ETTm1|L96|H96|mse_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTm1", "pred_len": 96, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "RLinear|ETTm1|L96|H96|mse_lr0.005|s2021"}
+{"model": "RLinear", "dataset": "ETTm1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "RLinear|ETTm1|L96|H96|td_geomH4_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTm1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "RLinear|ETTm1|L96|H96|td_geomH4_w03_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTm1", "pred_len": 720, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "RLinear|ETTm1|L96|H720|mse_lr0.0001|s2021"}
+{"model": "RLinear", "dataset": "ETTm1", "pred_len": 720, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "RLinear|ETTm1|L96|H720|mse_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTm1", "pred_len": 720, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "RLinear|ETTm1|L96|H720|mse_lr0.005|s2021"}
+{"model": "RLinear", "dataset": "ETTm1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "RLinear|ETTm1|L96|H720|td_geomH4_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTm1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "RLinear|ETTm1|L96|H720|td_geomH4_w03_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTm2", "pred_len": 96, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "RLinear|ETTm2|L96|H96|mse_lr0.0001|s2021"}
+{"model": "RLinear", "dataset": "ETTm2", "pred_len": 96, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "RLinear|ETTm2|L96|H96|mse_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTm2", "pred_len": 96, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "RLinear|ETTm2|L96|H96|mse_lr0.005|s2021"}
+{"model": "RLinear", "dataset": "ETTm2", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "RLinear|ETTm2|L96|H96|td_geomH4_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTm2", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "RLinear|ETTm2|L96|H96|td_geomH4_w03_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTm2", "pred_len": 720, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "RLinear|ETTm2|L96|H720|mse_lr0.0001|s2021"}
+{"model": "RLinear", "dataset": "ETTm2", "pred_len": 720, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "RLinear|ETTm2|L96|H720|mse_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTm2", "pred_len": 720, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "RLinear|ETTm2|L96|H720|mse_lr0.005|s2021"}
+{"model": "RLinear", "dataset": "ETTm2", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "RLinear|ETTm2|L96|H720|td_geomH4_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "ETTm2", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "RLinear|ETTm2|L96|H720|td_geomH4_w03_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "weather", "pred_len": 96, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "RLinear|weather|L96|H96|mse_lr0.0001|s2021"}
+{"model": "RLinear", "dataset": "weather", "pred_len": 96, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "RLinear|weather|L96|H96|mse_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "weather", "pred_len": 96, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "RLinear|weather|L96|H96|mse_lr0.005|s2021"}
+{"model": "RLinear", "dataset": "weather", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "RLinear|weather|L96|H96|td_geomH4_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "weather", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "RLinear|weather|L96|H96|td_geomH4_w03_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "weather", "pred_len": 720, "loss": "mse", "learning_rate": 0.0001, "tag": "mse_lr0.0001", "id": "RLinear|weather|L96|H720|mse_lr0.0001|s2021"}
+{"model": "RLinear", "dataset": "weather", "pred_len": 720, "loss": "mse", "learning_rate": 0.001, "tag": "mse_lr0.001", "id": "RLinear|weather|L96|H720|mse_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "weather", "pred_len": 720, "loss": "mse", "learning_rate": 0.005, "tag": "mse_lr0.005", "id": "RLinear|weather|L96|H720|mse_lr0.005|s2021"}
+{"model": "RLinear", "dataset": "weather", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "learning_rate": 0.001, "tag": "td_geomH4_lr0.001", "id": "RLinear|weather|L96|H720|td_geomH4_lr0.001|s2021"}
+{"model": "RLinear", "dataset": "weather", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.3, "learning_rate": 0.001, "tag": "td_geomH4_w03_lr0.001", "id": "RLinear|weather|L96|H720|td_geomH4_w03_lr0.001|s2021"}

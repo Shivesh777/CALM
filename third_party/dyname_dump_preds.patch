@@ -1,0 +1,77 @@
+diff --git a/run.py b/run.py
+index 92203bc..4bef28d 100644
+--- a/run.py
++++ b/run.py
+@@ -427,6 +427,7 @@ if __name__ == '__main__':
+         else:
+             fix_seed = 2023 + ii if args.model == 'iTransformer' else 2021 + ii
+ 
++        fix_seed += int(os.environ.get("SEED_OFFSET", "0"))   # extra seeds without re-running earlier iterations
+         setup_seed(fix_seed)
+         print('Seed:', fix_seed)
+         
+@@ -531,12 +532,35 @@ if __name__ == '__main__':
+             if isinstance(exp, Exp_Online):
+                 setup_seed(fix_seed)
+                 #if False:
++                _dump = os.environ.get("DUMP_PREDS")
++                if _dump:
++                    exp.args.do_predict = True
++                val_preds = []
+                 if not isinstance(exp, Exp_SOLID) and not args.wo_valid:
+                     vali_data = None
+                     torch.cuda.empty_cache()
+                     gc.collect()
+-                    exp.update_valid()
+-                mse, mae, test_data = exp.online(test_data)
++                    val_preds = exp.update_valid()
++                _ret = exp.online(test_data)
++                mse, mae, test_data = _ret[:3]
++                if _dump:
++                    def _cat16(lst):
++                        # = np.concatenate(lst, 0).astype(np.float16) (same values), but the float32 pieces are
++                        # released while copying: peak RAM ~1.5x instead of ~2.5x the float32 list (Traffic H96: 4.3 GB)
++                        if not lst:
++                            return np.zeros((0,), dtype=np.float16)
++                        out = np.empty((sum(len(q) for q in lst),) + tuple(np.shape(lst[0])[1:]), dtype=np.float16)
++                        i = 0
++                        for k in range(len(lst)):
++                            q = np.asarray(lst[k])
++                            out[i:i + len(q)] = q
++                            i += len(q)
++                            lst[k] = None
++                        return out
++                    _vp = _cat16(val_preds)
++                    _tp = _cat16(_ret[3]) if len(_ret) > 3 else np.zeros((0,), dtype=np.float16)
++                    np.savez_compressed(f"{_dump}_itr{ii}.npz", val=_vp, test=_tp, mse=mse, mae=mae)
++                    print("dumped predictions", _vp.shape, _tp.shape)
+             else:
+                 mse, mae, test_data, test_loader = exp.test(setting, test_data, test_loader)
+             all_results['mse'].append(mse)
+diff --git a/util/tools.py b/util/tools.py
+index b7353f6..6d55dbb 100644
+--- a/util/tools.py
++++ b/util/tools.py
+@@ -148,7 +148,7 @@ class EarlyStopping:
+         self.counter = 0
+         self.best_score = None
+         self.early_stop = False
+-        self.val_loss_min = np.Inf
++        self.val_loss_min = np.inf
+         self.delta = delta
+         self.best_checkpoint = None
+ 
+diff --git a/stubs/wandb.py b/stubs/wandb.py
+new file mode 100644
+index 0000000..865bf19
+--- /dev/null
++++ b/stubs/wandb.py
+@@ -0,0 +1,8 @@
++# minimal stub so that research code importing wandb runs without it
++def init(*a, **k): return None
++def log(*a, **k): return None
++def finish(*a, **k): return None
++class Table:
++    def __init__(self, *a, **k): pass
++class Image:
++    def __init__(self, *a, **k): pass

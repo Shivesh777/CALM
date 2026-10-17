@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+experiments/data/*
+!experiments/data/README.md
+experiments/tables/*
+!experiments/tables/README.md
+experiments/finance_data/work/
+third_party/DynaME/
+figures/node_modules/
+*.npz
+!experiments/results/raw/rpl-wfig/weights_ecl48.npz
+*.log

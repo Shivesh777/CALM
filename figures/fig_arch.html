@@ -1,0 +1,117 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="node_modules/katex/dist/katex.min.css">
+<script src="node_modules/d3/dist/d3.min.js"></script>
+<script src="node_modules/katex/dist/katex.min.js"></script>
+<script src="figlib.js"></script>
+<style>
+  .chip { fill: #f1f0ec; stroke: #d6d5ce; }
+  .chip-pub { fill: #ffffff; stroke: #6250d6; stroke-dasharray: 3 2; }
+  .card { fill: #ffffff; stroke: #cfcec7; }
+  .card-back { fill: #f6f5f2; stroke: #dddcd5; }
+  .comb { fill: #eef4fd; stroke: #9ec5f4; }
+  .wire { stroke: #9d9c97; stroke-width: 1.2; fill: none; }
+  .wireB { stroke: #2a78d6; stroke-width: 1.5; fill: none; }
+</style>
+</head><body>
+<div id="fig"></div>
+<script>
+whenFonts(() => {
+const W = 624, H = 286;
+const svg = makeSvg(W, H, "CALM: a pool of forecasters feeds, for each horizon bucket, five first-level combiners whose learning rates are divided by the overlap factor; a calibrated second level combines them; each loss arrives h_k steps after the forecast was issued.");
+const g = svg.append("g");
+const BLUE = css("--calm");
+
+/* ---------------- left: pool of forecasters */
+const chips = [["frozen backbone"], ["online fine-tuning"], ["output-layer refits"], ["linear refits"],
+               ["error feedback"], ["seasonal naive"], ["any other model", "open or closed source"]];
+const cx0 = 2, cy0 = 42, cw = 128, ch = 22, cg = 6;
+g.append("text").attr("class", "t-title").attr("x", cx0).attr("y", 15).text("Pool of forecasters");
+g.append("text").attr("class", "t-tiny").attr("x", cx0).attr("y", 28).text("anything that issues H-step forecasts");
+let yy = cy0;
+const chipMid = [];
+chips.forEach(([a, b]) => {
+  const hh = b ? ch + 13 : ch;
+  g.append("rect").attr("class", b ? "chip-pub" : "chip").attr("x", cx0).attr("y", yy).attr("width", cw).attr("height", hh).attr("rx", 5);
+  g.append("text").attr("class", "t-label").attr("x", cx0 + 9).attr("y", yy + 15).text(a);
+  if (b) g.append("text").attr("class", "t-small").attr("x", cx0 + 9).attr("y", yy + 28).text(b);
+  chipMid.push(yy + hh / 2);
+  yy += hh + cg;
+});
+const busX = cx0 + cw + 14;
+chipMid.forEach(y => g.append("path").attr("class", "wire").attr("d", `M${cx0 + cw},${y} H${busX}`));
+g.append("line").attr("x1", busX).attr("x2", busX).attr("y1", chipMid[0]).attr("y2", chipMid[chipMid.length - 1])
+  .attr("stroke", "#9d9c97").attr("stroke-width", 1.2);
+
+/* ---------------- middle: one card per horizon bucket */
+const kx = 186, ky = 44, kw = 262, kh = 192;
+[[10, 10], [5, 5]].forEach(([dx, dy]) => g.append("rect").attr("class", "card-back").attr("x", kx + dx).attr("y", ky - dy)
+  .attr("width", kw).attr("height", kh).attr("rx", 8));
+g.append("rect").attr("class", "card").attr("x", kx).attr("y", ky).attr("width", kw).attr("height", kh).attr("rx", 8);
+const tt = g.append("text").attr("class", "t-label").attr("x", kx + 12).attr("y", ky + 18).attr("font-weight", 600).text("horizon bucket");
+mathAt(kx + 12 + tt.node().getComputedTextLength() + 4, ky + 18, "k", { size: 10 });
+g.append("text").attr("class", "t-tiny").attr("x", kx + kw - 10).attr("y", ky + 18).attr("text-anchor", "end").text("12 buckets of horizons");
+const midY = ky + 30 + 4 + 2 * (25 + 6) + 12.5;
+g.append("path").attr("class", "wire").attr("d", `M${busX},${midY} H${kx - 1}`).attr("marker-end", "url(#arr)");
+mathAt((busX + kx) / 2 - 2, midY - 6, "f_e", { size: 10, anchor: "middle", color: "#52514e" });
+
+// first level: five combiners, four of them calibrated
+const combs = [["select", "fixed-share EW", 1], ["select, pooled", "across horizons", 1], ["EG", "linearised EW", 1],
+               ["BOA", "second-order", 1], ["uniform", "equal weights", 0]];
+const bx = kx + 14, by0 = ky + 34, bw = 134, bh = 25, bg = 6;
+g.append("text").attr("class", "t-tiny").attr("x", bx).attr("y", by0 - 4).text("first level");
+const ends = [];
+combs.forEach(([a, b, cal], i) => {
+  const y = by0 + i * (bh + bg);
+  g.append("rect").attr("class", "comb").attr("x", bx).attr("y", y).attr("width", bw).attr("height", bh).attr("rx", 5);
+  g.append("text").attr("class", "t-label").attr("x", bx + 8).attr("y", y + 11.5).attr("font-weight", 600).text(a);
+  g.append("text").attr("class", "t-tiny").attr("x", bx + 8).attr("y", y + 21.5).text(b);
+  if (cal) {
+    g.append("rect").attr("x", bx + bw - 37).attr("y", y + 6).attr("width", 31).attr("height", 13.5).attr("rx", 6.75).attr("fill", BLUE);
+    mathAt(bx + bw - 21.5, y + 16.6, "\\div\\kappa_k", { size: 8.6, anchor: "middle", color: "#ffffff" });
+  }
+  ends.push(y + bh / 2);
+});
+// second level
+const mx = bx + bw + 34, mw = 70, mh = 66, my = midY - mh / 2;
+ends.forEach(y => g.append("path").attr("class", "wire")
+  .attr("d", `M${bx + bw},${y} C${bx + bw + 20},${y} ${mx - 18},${midY} ${mx},${midY}`));
+g.append("rect").attr("x", mx).attr("y", my).attr("width", mw).attr("height", mh).attr("rx", 7).attr("fill", BLUE);
+g.append("text").attr("class", "t-tiny").attr("x", mx).attr("y", my - 5).text("second level");
+[["calibrated", 21], ["EW", 35]].forEach(([s, dy]) => g.append("text").attr("x", mx + mw / 2).attr("y", my + dy)
+  .attr("text-anchor", "middle").attr("fill", "#fff").attr("font-size", "11.5px").attr("font-weight", 700).text(s));
+mathAt(mx + mw / 2, my + 53, "\\div\\kappa_k", { size: 10, anchor: "middle", color: "#ffffff" });
+
+/* ---------------- right: output, delayed feedback, exact replay */
+const ox = 476, ow = 144, oh = 44, oy = midY - oh / 2;
+g.append("path").attr("class", "wireB").attr("d", `M${mx + mw},${midY} H${ox - 2}`).attr("marker-end", "url(#arrB)");
+g.append("rect").attr("x", ox).attr("y", oy).attr("width", ow).attr("height", oh).attr("rx", 7).attr("fill", "#fff")
+  .attr("stroke", BLUE).attr("stroke-width", 1.5);
+g.append("text").attr("class", "t-label").attr("x", ox + 11).attr("y", oy + 17).attr("font-weight", 600).text("combined forecast");
+mathAt(ox + 11, oy + 35, "\\hat y_{t+h}=\\textstyle\\sum_e w_{e}\\,f_{e}", { size: 9.6 });
+
+// delayed feedback loop
+const fy = ky + kh + 20, lx = ox + ow / 2;
+g.append("path").attr("d", `M${lx},${oy + oh} V${fy} H${kx + kw / 2} V${ky + kh + 2}`).attr("fill", "none")
+  .attr("stroke", "#52514e").attr("stroke-width", 1.2).attr("stroke-dasharray", "4 3").attr("marker-end", "url(#arr)");
+const lt = g.append("text").attr("class", "t-small").attr("x", kx + kw / 2 + 12).attr("y", fy - 6).text("loss revealed");
+const m1 = mathAt(kx + kw / 2 + 12 + lt.node().getComputedTextLength() + 3, fy - 6, "h_k", { size: 9 });
+g.append("text").attr("class", "t-small").attr("x", kx + kw / 2 + 12 + lt.node().getComputedTextLength() + 6 + m1.width).attr("y", fy - 6)
+  .text("steps later");
+// calibrated update (the change CALM makes)
+const ux = 186, uy = H - 12;
+g.append("text").attr("class", "t-label").attr("x", ux).attr("y", uy).attr("font-weight", 600).attr("fill", BLUE).text("calibrated update:");
+mathAt(ux + 104, uy, "\\eta_k=\\dfrac{\\eta_0}{\\hat\\sigma_k^{2}\\,\\kappa_k},\\quad \\alpha_k=\\alpha_0\\,\\kappa_k^{a},\\quad \\kappa_k=h_k", { size: 10 });
+
+// exact replay
+const rx = 476, ry = 30;
+g.append("text").attr("class", "t-title").attr("x", rx).attr("y", 15).text("Exact replay");
+g.append("rect").attr("x", rx).attr("y", ry).attr("width", ow).attr("height", 54).attr("rx", 6).attr("fill", "#f6f5f2").attr("stroke", "#dddcd5");
+const st = g.append("text").attr("class", "t-small").attr("x", rx + 9).attr("y", ry + 17).text("store error Gram");
+mathAt(rx + 9 + st.node().getComputedTextLength() + 4, ry + 17, "G_{t,k}", { size: 9 });
+g.append("text").attr("class", "t-small").attr("x", rx + 9).attr("y", ry + 31).text("→ replay any rule exactly");
+g.append("text").attr("class", "t-small").attr("x", rx + 9).attr("y", ry + 45).text("on CPU (45 rules compared)");
+});
+</script>
+</body></html>

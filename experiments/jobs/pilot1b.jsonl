@@ -1,0 +1,28 @@
+{"model": "DLinear", "dataset": "electricity", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|electricity|L96|H96|mse|s2021"}
+{"model": "DLinear", "dataset": "electricity", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|electricity|L96|H192|mse|s2021"}
+{"model": "DLinear", "dataset": "electricity", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|electricity|L96|H336|mse|s2021"}
+{"model": "DLinear", "dataset": "electricity", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|electricity|L96|H720|mse|s2021"}
+{"model": "PatchTST", "dataset": "electricity", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|electricity|L96|H96|mse|s2021"}
+{"model": "PatchTST", "dataset": "electricity", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|electricity|L96|H192|mse|s2021"}
+{"model": "PatchTST", "dataset": "electricity", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|electricity|L96|H336|mse|s2021"}
+{"model": "PatchTST", "dataset": "electricity", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|electricity|L96|H720|mse|s2021"}
+{"model": "iTransformer", "dataset": "electricity", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|electricity|L96|H96|mse|s2021"}
+{"model": "iTransformer", "dataset": "electricity", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|electricity|L96|H192|mse|s2021"}
+{"model": "iTransformer", "dataset": "electricity", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|electricity|L96|H336|mse|s2021"}
+{"model": "iTransformer", "dataset": "electricity", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|electricity|L96|H720|mse|s2021"}
+{"model": "PatchTST", "dataset": "electricity", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "tag": "td_geomH4", "id": "PatchTST|electricity|L96|H96|td_geomH4|s2021"}
+{"model": "PatchTST", "dataset": "electricity", "pred_len": 96, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "PatchTST|electricity|L96|H96|td_unif|s2021"}
+{"model": "PatchTST", "dataset": "electricity", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "PatchTST|electricity|L96|H96|td_geomH4_w05|s2021"}
+{"model": "PatchTST", "dataset": "electricity", "pred_len": 96, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "PatchTST|electricity|L96|H96|fredf08|s2021"}
+{"model": "PatchTST", "dataset": "electricity", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "tag": "td_geomH4", "id": "PatchTST|electricity|L96|H720|td_geomH4|s2021"}
+{"model": "PatchTST", "dataset": "electricity", "pred_len": 720, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "PatchTST|electricity|L96|H720|td_unif|s2021"}
+{"model": "PatchTST", "dataset": "electricity", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "PatchTST|electricity|L96|H720|td_geomH4_w05|s2021"}
+{"model": "PatchTST", "dataset": "electricity", "pred_len": 720, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "PatchTST|electricity|L96|H720|fredf08|s2021"}
+{"model": "iTransformer", "dataset": "electricity", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "tag": "td_geomH4", "id": "iTransformer|electricity|L96|H96|td_geomH4|s2021"}
+{"model": "iTransformer", "dataset": "electricity", "pred_len": 96, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "iTransformer|electricity|L96|H96|td_unif|s2021"}
+{"model": "iTransformer", "dataset": "electricity", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "iTransformer|electricity|L96|H96|td_geomH4_w05|s2021"}
+{"model": "iTransformer", "dataset": "electricity", "pred_len": 96, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "iTransformer|electricity|L96|H96|fredf08|s2021"}
+{"model": "iTransformer", "dataset": "electricity", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "tag": "td_geomH4", "id": "iTransformer|electricity|L96|H720|td_geomH4|s2021"}
+{"model": "iTransformer", "dataset": "electricity", "pred_len": 720, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "iTransformer|electricity|L96|H720|td_unif|s2021"}
+{"model": "iTransformer", "dataset": "electricity", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "iTransformer|electricity|L96|H720|td_geomH4_w05|s2021"}
+{"model": "iTransformer", "dataset": "electricity", "pred_len": 720, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "iTransformer|electricity|L96|H720|fredf08|s2021"}

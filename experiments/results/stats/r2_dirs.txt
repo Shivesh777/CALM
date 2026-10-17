@@ -1,0 +1,13 @@
+results/raw/dl-base7-ecl-s2025
+results/raw/dl-base7-etth2-s2025
+results/raw/dl-base7-ettm1-s2025
+results/raw/dl-base7-traffic-s2025
+results/raw/dl-base7-weather-s2025
+results/raw/dl-base8b-ecl-s2024
+results/raw/dl-base8b-etth2-s2024
+results/raw/dl-base8b-ettm1-s2024
+results/raw/dl-base8b-traffic-s2024
+results/raw/dl-base8b-weather-s2024
+results/raw/dl-base9-etth2-s2024
+results/raw/dl-base9-ettm1-s2024
+results/raw/dl-base9-weather-s2024

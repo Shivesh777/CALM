@@ -1,0 +1,98 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="node_modules/katex/dist/katex.min.css">
+<script src="node_modules/d3/dist/d3.min.js"></script>
+<script src="node_modules/katex/dist/katex.min.js"></script>
+<script src="figlib.js"></script>
+<script src="data/confirm.js"></script>
+</head><body>
+<div id="fig"></div>
+<script>
+whenFonts(() => {
+const W = 624, H = 232;
+const svg = makeSvg(W, H, "Top: the study timeline; CALM's configuration and the analysis were fixed before each confirmatory round. Bottom: CALM's test MSE relative to Proceed in each of the 90 confirmatory runs; 88 are below zero, 63 significantly, none significantly above.");
+const BLUE = css("--calm");
+
+function lock(g, x, y) {          // small padlock glyph, centred at (x, y)
+  g.append("path").attr("d", `M${x - 3.6},${y - 1} v-3 a3.6,3.6 0 0 1 7.2,0 v3`).attr("fill", "none").attr("stroke", BLUE).attr("stroke-width", 1.6);
+  g.append("rect").attr("x", x - 5.2).attr("y", y - 1.5).attr("width", 10.4).attr("height", 8).attr("rx", 1.6).attr("fill", BLUE);
+}
+
+/* ---------------- (a) timeline */
+{
+  const g = svg.append("g");
+  panelTitle(g, 0, 14, "a", "What was fixed when");
+  const y = 30, h = 34, x0 = 0, gapW = 74;
+  const blocks = [
+    { n: 75, title: "Development", sub: "RLinear 30 · iTransformer 45", fill: "#f1f0ec", stroke: "#d6d5ce" },
+    { n: 51, title: "Round 1", sub: "PatchTST 21 · iTransformer 30", fill: "#eef4fd", stroke: "#9ec5f4" },
+    { n: 39, title: "Round 2", sub: "PatchTST 9 · iTransformer 30", fill: "#eef4fd", stroke: "#9ec5f4" },
+  ];
+  const widths = [190, 143, 143];
+  let x = x0;
+  const locks = ["CALM frozen,\nanalysis committed", "round 2 registered:\ncandidates + rule"];
+  blocks.forEach((b, i) => {
+    const w = widths[i];
+    g.append("rect").attr("x", x).attr("y", y).attr("width", w).attr("height", h).attr("rx", 6).attr("fill", b.fill).attr("stroke", b.stroke);
+    g.append("text").attr("class", "t-label").attr("x", x + 9).attr("y", y + 14).attr("font-weight", 600).text(`${b.title}`);
+    g.append("text").attr("class", "t-label t-num").attr("x", x + w - 9).attr("y", y + 14).attr("text-anchor", "end")
+      .attr("font-weight", 600).text(i === 0 ? `${b.n} settings` : `${b.n} runs`);
+    g.append("text").attr("class", "t-tiny").attr("x", x + 9).attr("y", y + 27).text(b.sub);
+    x += w;
+    if (i < 2) {
+      const cx = x + gapW / 2;
+      g.append("line").attr("x1", x + 3).attr("x2", x + gapW - 3).attr("y1", y + h / 2).attr("y2", y + h / 2)
+        .attr("stroke", css("--axis")).attr("marker-end", "url(#arr)");
+      lock(g, cx, y + h / 2 - 6);
+      locks[i].split("\n").forEach((ln, j) => g.append("text").attr("class", "t-tiny").attr("x", cx).attr("y", y + h + 11 + j * 10.5)
+        .attr("text-anchor", "middle").style("fill", "#52514e").text(ln));
+      x += gapW;
+    }
+  });
+}
+
+/* ---------------- (b) CALM vs Proceed, every confirmatory run */
+{
+  const R = window.FIG_CONFIRM.runs;
+  const g = svg.append("g");
+  panelTitle(g, 0, 104, "b", "CALM vs. Proceed (authors' code), every confirmatory run");
+  const m = { l: 40, t: 116, w: W - 40 - 4, h: 96 };
+  const r1 = R.filter(r => r.round === 1).sort((a, b) => a.vp - b.vp);
+  const r2 = R.filter(r => r.round === 2).sort((a, b) => a.vp - b.vp);
+  const gapN = 3, n = r1.length + r2.length + gapN;
+  const band = m.w / n, bw = Math.min(4.2, band - 1.2);
+  const y = d3.scaleLinear().domain([-32, 4]).range([m.t + m.h, m.t]);
+  g.append("g").attr("class", "grid").attr("transform", `translate(${m.l},0)`).call(d3.axisLeft(y).tickValues([-30, -20, -10, 0]).tickSize(-m.w).tickFormat(""));
+  g.append("g").attr("class", "axis").attr("transform", `translate(${m.l},0)`)
+    .call(d3.axisLeft(y).tickValues([-30, -20, -10, 0]).tickSize(3).tickFormat(d => d === 0 ? "0" : d3.format("d")(d) + "%"));
+  g.append("line").attr("x1", m.l).attr("x2", m.l + m.w).attr("y1", y(0)).attr("y2", y(0)).attr("stroke", css("--ink-2")).attr("stroke-width", 1);
+  const colour = r => r.vp >= 0 ? "#b9b8b1" : (r.tp < -1.96 ? BLUE : css("--b200"));
+  const draw = (arr, off) => arr.forEach((r, i) => {
+    const xc = m.l + (off + i + 0.5) * band;
+    const y0 = y(0), y1 = y(r.vp);
+    const top = Math.min(y0, y1), hh = Math.abs(y1 - y0);
+    g.append("rect").attr("x", xc - bw / 2).attr("y", top).attr("width", bw).attr("height", Math.max(hh, 0.8)).attr("rx", Math.min(1.5, bw / 2))
+      .attr("fill", colour(r));
+  });
+  draw(r1, 0);
+  draw(r2, r1.length + gapN);
+  g.append("text").attr("class", "t-tiny").attr("x", m.l + band * r1.length / 2).attr("y", m.t + m.h + 12).attr("text-anchor", "middle").text(`round 1 (${r1.length} runs, sorted)`);
+  g.append("text").attr("class", "t-tiny").attr("x", m.l + band * (r1.length + gapN + r2.length / 2)).attr("y", m.t + m.h + 12).attr("text-anchor", "middle").text(`round 2 (${r2.length} runs, sorted)`);
+  g.append("text").attr("class", "t-tiny").attr("transform", `translate(${m.l - 33},${m.t + m.h / 2}) rotate(-90)`).attr("text-anchor", "middle").text("MSE vs. Proceed");
+  // summary + legend (top right of the panel)
+  const below = R.filter(r => r.vp < 0).length, sig = R.filter(r => r.vp < 0 && r.tp < -1.96).length, sigUp = R.filter(r => r.tp > 1.96).length;
+  const lx = m.l + 142, ly = m.t + 46;
+  g.append("text").attr("class", "t-label t-num").attr("x", lx).attr("y", ly).attr("font-weight", 600)
+    .text(`${below} of ${R.length} runs below Proceed`);
+  g.append("text").attr("class", "t-small t-num").attr("x", lx).attr("y", ly + 14)
+    .text(`${sig} significantly lower · ${sigUp} significantly higher`);
+  [[BLUE, "significant"], [css("--b200"), "not significant"], ["#b9b8b1", "above"]].reduce((xx, [c, t]) => {
+    g.append("rect").attr("x", xx).attr("y", ly + 22).attr("width", 9).attr("height", 9).attr("rx", 2).attr("fill", c);
+    const tx = g.append("text").attr("class", "t-tiny").attr("x", xx + 12).attr("y", ly + 30).text(t);
+    return xx + 12 + tx.node().getComputedTextLength() + 10;
+  }, lx);
+}
+});
+</script>
+</body></html>

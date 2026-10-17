@@ -1,0 +1,6 @@
+RLinear|ETTh2|H24|cpu_on1 done 125 s
+RLinear|ETTh2|H96|cpu_on1 done 135 s
+RLinear|ETTm1|H24|cpu_on1 done 175 s
+RLinear|ETTm1|H96|cpu_on1 done 192 s
+RLinear|weather|H24|cpu_on1 done 179 s
+RLinear|weather|H96|cpu_on1 done 207 s

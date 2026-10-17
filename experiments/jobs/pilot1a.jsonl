@@ -1,0 +1,108 @@
+{"model": "DLinear", "dataset": "ETTh1", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTh1|L96|H96|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTh1", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTh1|L96|H192|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTh1", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTh1|L96|H336|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTh1", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTh1|L96|H720|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTh2", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTh2|L96|H96|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTh2", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTh2|L96|H192|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTh2", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTh2|L96|H336|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTh2", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTh2|L96|H720|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTm1", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTm1|L96|H96|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTm1", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTm1|L96|H192|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTm1", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTm1|L96|H336|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTm1", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTm1|L96|H720|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTm2", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTm2|L96|H96|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTm2", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTm2|L96|H192|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTm2", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTm2|L96|H336|mse|s2021"}
+{"model": "DLinear", "dataset": "ETTm2", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|ETTm2|L96|H720|mse|s2021"}
+{"model": "DLinear", "dataset": "weather", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|weather|L96|H96|mse|s2021"}
+{"model": "DLinear", "dataset": "weather", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|weather|L96|H192|mse|s2021"}
+{"model": "DLinear", "dataset": "weather", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|weather|L96|H336|mse|s2021"}
+{"model": "DLinear", "dataset": "weather", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "DLinear|weather|L96|H720|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTh1", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTh1|L96|H96|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTh1", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTh1|L96|H192|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTh1", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTh1|L96|H336|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTh1", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTh1|L96|H720|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTh2", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTh2|L96|H96|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTh2", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTh2|L96|H192|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTh2", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTh2|L96|H336|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTh2", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTh2|L96|H720|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTm1", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTm1|L96|H96|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTm1", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTm1|L96|H192|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTm1", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTm1|L96|H336|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTm1", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTm1|L96|H720|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTm2", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTm2|L96|H96|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTm2", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTm2|L96|H192|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTm2", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTm2|L96|H336|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTm2", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|ETTm2|L96|H720|mse|s2021"}
+{"model": "PatchTST", "dataset": "weather", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|weather|L96|H96|mse|s2021"}
+{"model": "PatchTST", "dataset": "weather", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|weather|L96|H192|mse|s2021"}
+{"model": "PatchTST", "dataset": "weather", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|weather|L96|H336|mse|s2021"}
+{"model": "PatchTST", "dataset": "weather", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "PatchTST|weather|L96|H720|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTh1", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTh1|L96|H96|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTh1", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTh1|L96|H192|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTh1", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTh1|L96|H336|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTh1", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTh1|L96|H720|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTh2", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTh2|L96|H96|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTh2", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTh2|L96|H192|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTh2", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTh2|L96|H336|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTh2", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTh2|L96|H720|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTm1", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTm1|L96|H96|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTm1", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTm1|L96|H192|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTm1", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTm1|L96|H336|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTm1", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTm1|L96|H720|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTm2", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTm2|L96|H96|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTm2", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTm2|L96|H192|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTm2", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTm2|L96|H336|mse|s2021"}
+{"model": "iTransformer", "dataset": "ETTm2", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|ETTm2|L96|H720|mse|s2021"}
+{"model": "iTransformer", "dataset": "weather", "pred_len": 96, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|weather|L96|H96|mse|s2021"}
+{"model": "iTransformer", "dataset": "weather", "pred_len": 192, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|weather|L96|H192|mse|s2021"}
+{"model": "iTransformer", "dataset": "weather", "pred_len": 336, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|weather|L96|H336|mse|s2021"}
+{"model": "iTransformer", "dataset": "weather", "pred_len": 720, "loss": "mse", "ema": true, "tag": "mse", "id": "iTransformer|weather|L96|H720|mse|s2021"}
+{"model": "PatchTST", "dataset": "ETTh1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "tag": "td_geomH4", "id": "PatchTST|ETTh1|L96|H96|td_geomH4|s2021"}
+{"model": "PatchTST", "dataset": "ETTh1", "pred_len": 96, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "PatchTST|ETTh1|L96|H96|td_unif|s2021"}
+{"model": "PatchTST", "dataset": "ETTh1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "PatchTST|ETTh1|L96|H96|td_geomH4_w05|s2021"}
+{"model": "PatchTST", "dataset": "ETTh1", "pred_len": 96, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "PatchTST|ETTh1|L96|H96|fredf08|s2021"}
+{"model": "PatchTST", "dataset": "ETTh1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "tag": "td_geomH4", "id": "PatchTST|ETTh1|L96|H720|td_geomH4|s2021"}
+{"model": "PatchTST", "dataset": "ETTh1", "pred_len": 720, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "PatchTST|ETTh1|L96|H720|td_unif|s2021"}
+{"model": "PatchTST", "dataset": "ETTh1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "PatchTST|ETTh1|L96|H720|td_geomH4_w05|s2021"}
+{"model": "PatchTST", "dataset": "ETTh1", "pred_len": 720, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "PatchTST|ETTh1|L96|H720|fredf08|s2021"}
+{"model": "PatchTST", "dataset": "ETTm1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "tag": "td_geomH4", "id": "PatchTST|ETTm1|L96|H96|td_geomH4|s2021"}
+{"model": "PatchTST", "dataset": "ETTm1", "pred_len": 96, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "PatchTST|ETTm1|L96|H96|td_unif|s2021"}
+{"model": "PatchTST", "dataset": "ETTm1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "PatchTST|ETTm1|L96|H96|td_geomH4_w05|s2021"}
+{"model": "PatchTST", "dataset": "ETTm1", "pred_len": 96, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "PatchTST|ETTm1|L96|H96|fredf08|s2021"}
+{"model": "PatchTST", "dataset": "ETTm1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "tag": "td_geomH4", "id": "PatchTST|ETTm1|L96|H720|td_geomH4|s2021"}
+{"model": "PatchTST", "dataset": "ETTm1", "pred_len": 720, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "PatchTST|ETTm1|L96|H720|td_unif|s2021"}
+{"model": "PatchTST", "dataset": "ETTm1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "PatchTST|ETTm1|L96|H720|td_geomH4_w05|s2021"}
+{"model": "PatchTST", "dataset": "ETTm1", "pred_len": 720, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "PatchTST|ETTm1|L96|H720|fredf08|s2021"}
+{"model": "PatchTST", "dataset": "weather", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "tag": "td_geomH4", "id": "PatchTST|weather|L96|H96|td_geomH4|s2021"}
+{"model": "PatchTST", "dataset": "weather", "pred_len": 96, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "PatchTST|weather|L96|H96|td_unif|s2021"}
+{"model": "PatchTST", "dataset": "weather", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "PatchTST|weather|L96|H96|td_geomH4_w05|s2021"}
+{"model": "PatchTST", "dataset": "weather", "pred_len": 96, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "PatchTST|weather|L96|H96|fredf08|s2021"}
+{"model": "PatchTST", "dataset": "weather", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "tag": "td_geomH4", "id": "PatchTST|weather|L96|H720|td_geomH4|s2021"}
+{"model": "PatchTST", "dataset": "weather", "pred_len": 720, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "PatchTST|weather|L96|H720|td_unif|s2021"}
+{"model": "PatchTST", "dataset": "weather", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "PatchTST|weather|L96|H720|td_geomH4_w05|s2021"}
+{"model": "PatchTST", "dataset": "weather", "pred_len": 720, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "PatchTST|weather|L96|H720|fredf08|s2021"}
+{"model": "iTransformer", "dataset": "ETTh1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "tag": "td_geomH4", "id": "iTransformer|ETTh1|L96|H96|td_geomH4|s2021"}
+{"model": "iTransformer", "dataset": "ETTh1", "pred_len": 96, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "iTransformer|ETTh1|L96|H96|td_unif|s2021"}
+{"model": "iTransformer", "dataset": "ETTh1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "iTransformer|ETTh1|L96|H96|td_geomH4_w05|s2021"}
+{"model": "iTransformer", "dataset": "ETTh1", "pred_len": 96, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "iTransformer|ETTh1|L96|H96|fredf08|s2021"}
+{"model": "iTransformer", "dataset": "ETTh1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "tag": "td_geomH4", "id": "iTransformer|ETTh1|L96|H720|td_geomH4|s2021"}
+{"model": "iTransformer", "dataset": "ETTh1", "pred_len": 720, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "iTransformer|ETTh1|L96|H720|td_unif|s2021"}
+{"model": "iTransformer", "dataset": "ETTh1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "iTransformer|ETTh1|L96|H720|td_geomH4_w05|s2021"}
+{"model": "iTransformer", "dataset": "ETTh1", "pred_len": 720, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "iTransformer|ETTh1|L96|H720|fredf08|s2021"}
+{"model": "iTransformer", "dataset": "ETTm1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "tag": "td_geomH4", "id": "iTransformer|ETTm1|L96|H96|td_geomH4|s2021"}
+{"model": "iTransformer", "dataset": "ETTm1", "pred_len": 96, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "iTransformer|ETTm1|L96|H96|td_unif|s2021"}
+{"model": "iTransformer", "dataset": "ETTm1", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "iTransformer|ETTm1|L96|H96|td_geomH4_w05|s2021"}
+{"model": "iTransformer", "dataset": "ETTm1", "pred_len": 96, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "iTransformer|ETTm1|L96|H96|fredf08|s2021"}
+{"model": "iTransformer", "dataset": "ETTm1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "tag": "td_geomH4", "id": "iTransformer|ETTm1|L96|H720|td_geomH4|s2021"}
+{"model": "iTransformer", "dataset": "ETTm1", "pred_len": 720, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "iTransformer|ETTm1|L96|H720|td_unif|s2021"}
+{"model": "iTransformer", "dataset": "ETTm1", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "iTransformer|ETTm1|L96|H720|td_geomH4_w05|s2021"}
+{"model": "iTransformer", "dataset": "ETTm1", "pred_len": 720, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "iTransformer|ETTm1|L96|H720|fredf08|s2021"}
+{"model": "iTransformer", "dataset": "weather", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "tag": "td_geomH4", "id": "iTransformer|weather|L96|H96|td_geomH4|s2021"}
+{"model": "iTransformer", "dataset": "weather", "pred_len": 96, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "iTransformer|weather|L96|H96|td_unif|s2021"}
+{"model": "iTransformer", "dataset": "weather", "pred_len": 96, "loss": "td", "td_mode": "geom", "td_kappa": 24.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "iTransformer|weather|L96|H96|td_geomH4_w05|s2021"}
+{"model": "iTransformer", "dataset": "weather", "pred_len": 96, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "iTransformer|weather|L96|H96|fredf08|s2021"}
+{"model": "iTransformer", "dataset": "weather", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "tag": "td_geomH4", "id": "iTransformer|weather|L96|H720|td_geomH4|s2021"}
+{"model": "iTransformer", "dataset": "weather", "pred_len": 720, "loss": "td", "td_mode": "uniform", "tag": "td_unif", "id": "iTransformer|weather|L96|H720|td_unif|s2021"}
+{"model": "iTransformer", "dataset": "weather", "pred_len": 720, "loss": "td", "td_mode": "geom", "td_kappa": 180.0, "td_weight": 0.5, "tag": "td_geomH4_w05", "id": "iTransformer|weather|L96|H720|td_geomH4_w05|s2021"}
+{"model": "iTransformer", "dataset": "weather", "pred_len": 720, "loss": "fredf", "fredf_alpha": 0.8, "tag": "fredf08", "id": "iTransformer|weather|L96|H720|fredf08|s2021"}

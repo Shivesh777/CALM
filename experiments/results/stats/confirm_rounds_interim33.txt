@@ -1,0 +1,46 @@
+== round 1: 51 runs
+  CALM       n  51 mean -0.92 median -0.88 worst +3.97  CALM lower 0
+  CALM+AH    n  51 mean -1.00 median -0.93 worst +3.99  CALM lower 8
+  BOA-cal    n  51 mean -1.08 median -1.09 worst +4.56  CALM lower 9
+  AdaHedgeD  n  51 mean -0.86 median -0.95 worst +5.21  CALM lower 17
+  DORM+      n  51 mean -0.64 median -0.80 worst +4.86  CALM lower 37
+  CALM-sel   n  51 mean -0.37 median -0.42 worst +3.58  CALM lower 40
+  ELF        n  51 mean +0.39 median -0.05 worst +7.78  CALM lower 48
+  Kim et al. n  51 mean +1.67 median +0.80 worst +16.28  CALM lower 50
+  MLpol      n  51 mean +1.22 median +0.90 worst +6.50  CALM lower 45
+  EW         n  51 mean +3.91 median +3.01 worst +18.46  CALM lower 50
+  CALM vs Proceed: mean -6.09%, lower 50/51, sig lower 37, sig higher 0
+  DM meta5_eg_boa|adahedged        : first sig better 2, sig worse 5, of 51
+  DM meta6_eg_boa_ah|meta5_eg_boa  : first sig better 0, sig worse 0, of 0
+  DM boa_grad_cal|meta5_eg_boa     : first sig better 0, sig worse 0, of 0
+== round 2: 33 runs
+  CALM       n  33 mean -1.08 median -1.16 worst +4.00  CALM lower 0
+  CALM+AH    n  33 mean -1.17 median -1.36 worst +4.05  CALM lower 8
+  BOA-cal    n  33 mean -1.29 median -1.53 worst +4.44  CALM lower 8
+  AdaHedgeD  n  33 mean -0.81 median -1.47 worst +7.21  CALM lower 16
+  DORM+      n  33 mean -0.68 median -1.02 worst +5.79  CALM lower 25
+  CALM-sel   n  33 mean -0.23 median -0.61 worst +3.79  CALM lower 29
+  ELF        n  33 mean +0.65 median +0.01 worst +7.25  CALM lower 31
+  Kim et al. n  33 mean +2.17 median +0.84 worst +15.92  CALM lower 33
+  MLpol      n  33 mean +1.04 median +0.21 worst +5.89  CALM lower 27
+  EW         n  33 mean +3.91 median +2.88 worst +20.24  CALM lower 31
+  CALM vs Proceed: mean -6.16%, lower 32/33, sig lower 20, sig higher 0
+  DM meta5_eg_boa|adahedged        : first sig better 3, sig worse 5, of 33
+  DM meta6_eg_boa_ah|meta5_eg_boa  : first sig better 9, sig worse 2, of 33
+  DM boa_grad_cal|meta5_eg_boa     : first sig better 15, sig worse 0, of 33
+== both rounds: 84 runs
+  CALM       n  84 mean -0.98 median -0.99 worst +4.00  CALM lower 0
+  CALM+AH    n  84 mean -1.06 median -1.06 worst +4.05  CALM lower 16
+  BOA-cal    n  84 mean -1.16 median -1.15 worst +4.56  CALM lower 17
+  AdaHedgeD  n  84 mean -0.84 median -1.00 worst +7.21  CALM lower 33
+  DORM+      n  84 mean -0.66 median -0.83 worst +5.79  CALM lower 62
+  CALM-sel   n  84 mean -0.32 median -0.45 worst +3.79  CALM lower 69
+  ELF        n  84 mean +0.49 median -0.02 worst +7.78  CALM lower 79
+  Kim et al. n  84 mean +1.86 median +0.82 worst +16.28  CALM lower 83
+  MLpol      n  84 mean +1.15 median +0.82 worst +6.50  CALM lower 72
+  EW         n  84 mean +3.91 median +2.99 worst +20.24  CALM lower 81
+  CALM vs Proceed: mean -6.12%, lower 82/84, sig lower 57, sig higher 0
+  DM meta5_eg_boa|adahedged        : first sig better 5, sig worse 10, of 84
+  DM meta6_eg_boa_ah|meta5_eg_boa  : first sig better 9, sig worse 2, of 33
+  DM boa_grad_cal|meta5_eg_boa     : first sig better 15, sig worse 0, of 33
+wrote t_confirm2.tex t_rounds.tex

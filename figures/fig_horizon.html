@@ -1,0 +1,59 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="node_modules/katex/dist/katex.min.css">
+<script src="node_modules/d3/dist/d3.min.js"></script>
+<script src="node_modules/katex/dist/katex.min.js"></script>
+<script src="figlib.js"></script>
+<script src="data/horizon.js"></script>
+</head><body>
+<div id="fig"></div>
+<script>
+whenFonts(() => {
+const HZ = window.FIG_HORIZON;
+const series = [["meta5_eg_boa", "CALM", css("--calm"), "circle"], ["boa_grad_cal", "calibrated BOA", css("--boa"), "square"],
+                ["adahedged", "AdaHedgeD", css("--adah"), "triangle"], ["dormp", "DORM+", css("--dorm"), "diamond"],
+                ["kim26", "Kim et al. (2026)", css("--kim"), "wye"], ["naive_slow", "EW (same rate)", css("--ew"), "cross"]];
+const W = 624, Hh = 258;
+const svg = makeSvg(W, Hh, "Gap to the best expert in hindsight by forecast horizon, iTransformer pools with GD and Proceed (75 runs). The tuning-free delayed learners keep up at short horizons and fall behind, with heavy tails, at long ones; rules with one rate for all horizons degrade steadily; the calibrated rules do not.");
+const g = svg.append("g");
+// legend (one row on top)
+let lx = 4;
+series.forEach(([k, lab, col, sym]) => {
+  g.append("line").attr("x1", lx).attr("x2", lx + 16).attr("y1", 9).attr("y2", 9).attr("stroke", col).attr("stroke-width", k === "meta5_eg_boa" ? 2.6 : 2);
+  g.append("path").attr("d", d3.symbol(d3["symbol" + sym[0].toUpperCase() + sym.slice(1)], 34)()).attr("transform", `translate(${lx + 8},9)`)
+    .attr("fill", col).attr("stroke", "#fff").attr("stroke-width", 0.8);
+  const t = g.append("text").attr("class", "t-small").attr("x", lx + 21).attr("y", 13).text(lab);
+  lx += 21 + t.node().getComputedTextLength() + 16;
+});
+const cols = [["Proceed", "Proceed protocol"], ["DynaME", "DynaME protocol"]];
+const rows = [["mean", "mean gap (pts)"], ["p90", "90th percentile (pts)"]];
+const pw = 262, ph = 72, x0s = [44, 44 + pw + 52], y0s = [42, 42 + ph + 42];
+const xs = d3.scaleLinear().domain([0, 1]).range([0, pw]);
+rows.forEach(([stat, ylab], ri) => cols.forEach(([proto, title], ci) => {
+  const ox = x0s[ci], oy = y0s[ri];
+  const vals = series.flatMap(([k]) => HZ.data[proto][k][stat]);
+  const y = d3.scaleLinear().domain([stat === "mean" ? Math.min(-4, d3.min(vals)) : Math.min(-1, d3.min(vals)), d3.max(vals)]).nice().range([oy + ph, oy]);
+  const gg = g.append("g");
+  gg.append("g").attr("class", "grid").attr("transform", `translate(${ox},0)`).call(d3.axisLeft(y).ticks(4).tickSize(-pw).tickFormat(""));
+  gg.append("g").attr("class", "axis").attr("transform", `translate(${ox},0)`).call(d3.axisLeft(y).ticks(4).tickSize(3));
+  gg.append("g").attr("class", "axis").attr("transform", `translate(${ox},${oy + ph})`)
+    .call(d3.axisBottom(xs).tickValues([0, 1 / 3, 2 / 3, 1]).tickFormat((d, i) => ["0", "H/3", "2H/3", "H"][i]).tickSize(3));
+  gg.append("line").attr("x1", ox).attr("x2", ox + pw).attr("y1", y(0)).attr("y2", y(0)).attr("stroke", "#52514e").attr("stroke-dasharray", "3 3");
+  series.slice().reverse().forEach(([k, lab, col, sym]) => {
+    const d = HZ.data[proto][k][stat];
+    const pts = d.map((v, i) => [ox + xs(HZ.x[i]), y(v)]);
+    gg.append("path").attr("d", d3.line().curve(d3.curveMonotoneX)(pts)).attr("fill", "none").attr("stroke", col)
+      .attr("stroke-width", k === "meta5_eg_boa" ? 2.6 : 1.8).attr("stroke-linejoin", "round");
+    pts.forEach(p => gg.append("path").attr("d", d3.symbol(d3["symbol" + sym[0].toUpperCase() + sym.slice(1)], 30)())
+      .attr("transform", `translate(${p[0]},${p[1]})`).attr("fill", col).attr("stroke", "#fff").attr("stroke-width", 0.8));
+  });
+  if (ri === 0) gg.append("text").attr("class", "t-title").attr("x", ox).attr("y", oy - 10).text(`${title}`)
+    .append("tspan").attr("class", "t-tiny").attr("dx", 6).text(`${HZ.data[proto].meta5_eg_boa.n} runs`);
+  if (ci === 0) gg.append("text").attr("class", "t-tiny").attr("transform", `translate(${ox - 32},${oy + ph / 2}) rotate(-90)`)
+    .attr("text-anchor", "middle").text(ylab);
+  if (ri === 1) gg.append("text").attr("class", "t-tiny").attr("x", ox + pw / 2).attr("y", oy + ph + 25).attr("text-anchor", "middle").text("forecast horizon");
+}));
+});
+</script>
+</body></html>
